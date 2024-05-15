@@ -1,0 +1,31 @@
+.timer__container{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.timer__container span{
+    color: var(--black2);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29.05px;
+}
+
+.timer__container p{
+    color: var(--black);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24.2px;
+    padding: 10px;
+    border: 1px solid var(--green3);
+    background-color: var(--green2);
+    border-radius: 8px;
+}
+
+.timer__container p span{
+    color: var(--black);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24.2px;
+    margin: 0 5px;
+}

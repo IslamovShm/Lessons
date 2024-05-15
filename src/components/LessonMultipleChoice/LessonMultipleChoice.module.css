@@ -1,0 +1,84 @@
+.checkbox{
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: var(--grey);
+    border: 2px solid #343434;
+    border-radius: 5px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.multiple__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 37px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.timer__answers_wrapper{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+
+.correct__answers{
+    display: flex;
+    align-items: center;
+    gap: 21px;
+}
+
+.correct__answers span{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--black2);
+    font-size: 24px;
+    line-height: 29.05px;
+    font-weight: 400;
+}
+
+.multiple__title{
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38.73px;
+    color: var(--black);
+}
+
+.quizes__container{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.quiz__wrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.option{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.36px;
+    color: var(--black2);
+}
+
+.quiz__checked{
+    z-index: 1000;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: calc(50% - 7px);
+    left: 3px;
+    cursor: pointer;
+}
+
+.checkbox:checked{
+    background-color: var(--black2);
+}

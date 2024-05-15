@@ -1,0 +1,20 @@
+:root{
+    --black: #000000;
+    --black2: #161616;
+    --white: #FFFFFF;
+    --green: #63C174;
+    --orange: #FF8B3E;
+    --orange2: #FEEADD;
+    --grey: rgba(0, 0, 0, 0.11);
+    --grey2: #EDEDED;
+    --grey3: #A0A0A0;
+    --green2: #E5FBEB;
+    --green3: #4CC38A;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}

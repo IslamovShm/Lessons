@@ -1,0 +1,87 @@
+.container{
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 32px 10px;
+}
+
+.lesson__title{
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--black);
+    line-height: 29.05px;
+    margin-bottom: 30px;
+}
+
+.allex__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.lesson__currentpage{
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    color: var(--black);
+    font-size: 18px;
+    line-height: 21.78px;
+}
+
+.stepper{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15.35px;
+}
+
+.step{
+    width: 70px;
+    height: 10px;
+    border-radius: 20px;
+    background-color: var(--grey);
+    transition: 0.3s ease-in-out;
+}
+
+.complete{
+    background-color: var(--green);
+}
+
+.active{
+    background-color: var(--orange);
+}
+
+.questions__container{
+    width: 100%;
+    min-height: fit-content;
+    border: 1px solid var(--grey2);
+    border-radius: 24px;
+    padding: 32px;
+}
+
+.overview__buttons{
+    display: flex;
+    margin-top: 24px;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 24px;
+}
+
+.overview__buttons button{
+    padding: 16px 32px;
+    outline: none;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.overview__btn_prev{
+    background-color: transparent;
+    border: 1px solid var(--grey2);
+    color: var(--black);
+}
+
+.overview__btn_next{
+    border: none;
+    color: var(--white);
+    background-color: var(--orange);
+}

@@ -1,0 +1,142 @@
+.lesson__complete_container{
+
+}
+
+.allEx__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.done{
+    width: 95%;
+    height: 10px;
+    border-radius: 20px;
+    background-color: var(--green);
+}
+
+.count__ex{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21.78px;
+    color: var(--black);
+}
+
+.progress__block{
+    border: 1px solid var(--grey2);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress__block h2{
+    margin: 56px 0 8px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38.73px;
+    text-align: center;
+    color: var(--black);
+}
+
+.progress__block p{
+    margin-bottom: 32px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21.78px;
+    text-align: center;
+    color: var(--black);
+}
+
+.progress{
+    position: relative;
+    width: 268px;
+    height: 220px;
+}
+
+.progress p{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: calc(50% - 71px);
+    left: calc((50% - 53px));
+}
+
+.progress p .progress_count{
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 96.82px;
+    text-align: center;
+    color: var(--black);
+}
+
+.progress p .progress__all{
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38.73px;
+    text-align: center;
+    color: var(--black);
+}
+
+.daily__goal{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21.78px;
+    text-align: center;
+    color: var(--black);
+}
+
+.earned_coins{
+    margin: 24px 0;
+    background-color: rgba(255, 139, 62, 0.05);
+    border-radius: 16px;
+    padding: 19.5px 32px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.earned_coins span{
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    color: var(--orange);
+    letter-spacing: 10%;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21.78px;
+}
+
+.earned_coins span svg{
+    margin-right: 8px;
+}
+
+.continue{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 16px;
+    padding: 16px 32px;
+    background-color: var(--orange);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29.05px;
+    color: var(--white);
+    margin-bottom: 32px;
+}
+
+@media (max-width: 929px) {
+    .done{
+        width: 90%;
+    }
+}
+
+@media (max-width: 512px) {
+    .done{
+        width: 85%;
+    }
+}
