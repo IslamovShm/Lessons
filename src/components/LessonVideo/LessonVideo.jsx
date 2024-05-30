@@ -1,9 +1,12 @@
+import poster from '../../assets/video.png'
 
 import styles from './LessonVideo.module.css'
 
-const LessonVideo = ({ lessonImg }) => {
+const LessonVideo = ({ video }) => {
     return (
-        <img className={styles.lesson__video} src={lessonImg} alt="video" />
+            <video className={styles.lesson__video} controls poster={poster}>
+                <source src='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'/>
+            </video>
     )
 }
 

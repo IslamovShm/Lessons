@@ -75,8 +75,10 @@
 
 .option input{
     all: unset;
+    display: inline-block;
+    text-align: center;
+    transition: width 50ms linear;
     background-color: var(--orange2);
-    width: 48px;
     height: 21px;
     border-radius: 6px;
     text-align: center;
@@ -146,5 +148,18 @@
     line-height: 29.05px;
     border: 1px solid var(--grey2);
     border-radius: 16px;
+    color: var(--black2);
     cursor: pointer;
+}
+
+.answers__wrapper button:disabled{
+    color: var(--grey2);
+}
+
+.correct_btn{
+    color: var(--green3) !important;
+}
+
+.incorrect_btn{
+    color: var(--red) !important;
 }

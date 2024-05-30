@@ -7,17 +7,19 @@ import LessonTimer from '../LessonTimer/LessonTimer';
 const LessonMultipleChoice = ({
     question,
     answerOptions,
-    correctAnswer
+    // correctAnswer
 }) => {
-    const [checkedOptions, setCheckedOptions] = useState([]);
+    const [checkedOption, setCheckedOption] = useState(null);
 
     const handleCheckboxChange = (index) => {
-        if (checkedOptions.includes(index)) {
-            setCheckedOptions(checkedOptions.filter((item) => item !== index));
+        if (checkedOption == index) {
+            setCheckedOption(null)
         } else {
-            setCheckedOptions([...checkedOptions, index]);
+            setCheckedOption(index)
         }
     }
+
+    console.log(answerOptions)
 
     return (
         <>
@@ -45,26 +47,27 @@ const LessonMultipleChoice = ({
             </div>
 
             <div className={styles.quizes__container}>
-                {answerOptions.map((answerOption, index) => (
-                    <div className={styles.quiz__wrapper} key={index}>
-                        <input
-                            type="checkbox"
-                            className={styles.checkbox}
-                            checked={checkedOptions.includes(index)}
-                            onChange={() => handleCheckboxChange(index)}
-                        />
-                        <label htmlFor="" className="option">
-                            {answerOption}
-                        </label>
-                        {checkedOptions.includes(index) && (
-                            <img 
-                                src={checked} 
-                                alt="checked" 
-                                className={styles.quiz__checked}
-                                onClick={() => handleCheckboxChange(index)}/>
-                        )}
-                    </div>
-                ))}
+            {answerOptions.map((answerOption, index) => (
+                <div className={styles.quiz__wrapper} key={answerOption.id}>
+                    <input
+                        type="checkbox"
+                        className={styles.checkbox}
+                        checked={checkedOption == index}
+                        onChange={() => handleCheckboxChange(index)}
+                    />
+                    <label htmlFor="" className="option">
+                        {answerOption.value}
+                    </label>
+                    {checkedOption == index && (
+                        <img 
+                            src={checked} 
+                            alt="checked" 
+                            className={styles.quiz__checked}
+                            onClick={() => setCheckedOption(index)}/>
+                    )}
+                </div>
+            ))}
+
             </div>
         </>
     )

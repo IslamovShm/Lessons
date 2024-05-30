@@ -1,4 +1,6 @@
 .lesson__video{
     width: 100%;
+    max-height: 731px;
+    object-fit: cover;
     height: 100%;
 }

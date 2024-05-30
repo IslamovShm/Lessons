@@ -53,10 +53,16 @@
 
 .questions__container{
     width: 100%;
-    min-height: fit-content;
+    min-height: 700px;
     border: 1px solid var(--grey2);
     border-radius: 24px;
     padding: 32px;
+}
+
+.questions__container_video{
+    border: none;
+    padding: 0;
+    border-radius: 24px;
 }
 
 .overview__buttons{

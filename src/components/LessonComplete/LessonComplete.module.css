@@ -13,7 +13,23 @@
     width: 95%;
     height: 10px;
     border-radius: 20px;
+    background-color: var(--grey2);
+}
+
+.done__progress{
     background-color: var(--green);
+    height: 100%;
+    border-radius: 20px;
+    animation: fillProgress 1.5s ease-in-out forwards;
+}
+
+@keyframes fillProgress {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
 }
 
 .count__ex{

@@ -1,24 +1,29 @@
 import styles from './LessonOverview.module.css'
+import lessonImg from '../../assets/imglesson.png'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { setIsVisited } from '../../store/actions'
 
 const LessonOverview = ({
-    lessonDescOverview,
-    lessonDescOutcome,
-    lessonImg
+    question,
+    id
 }) => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(setIsVisited(id))
+    }, [])
     return (
         <>
             <h2 className={styles.overview__title}>Course Overview</h2>
 
             <div className={styles.overview__wrapper}>
-                <div className={styles.overview__img}>
+                {/* <div className={styles.overview__img}>
                     <img src={lessonImg} alt="overview" />
-                </div>
+                </div> */}
 
                 <div className={styles.overview__desc}>
-                    <h3>Overview</h3>
-                    <p>{lessonDescOverview}</p>
-                    <h3>Outcome</h3>
-                    <p>{lessonDescOutcome}</p>
+                    <p dangerouslySetInnerHTML={{ __html: question }}></p>
                 </div>
             </div>
         </>

@@ -1,0 +1,36 @@
+.alert{
+    height: 48px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 1536px;
+    margin-top: 20px;
+    padding: 16px 6px;
+    transition: 0.3s ease-in-out;
+}
+
+.correct{
+    background-color: var(--green3);
+}
+
+.incorrect{
+    background-color: var(--red);
+}
+
+.alert p{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--white);
+}
+
+.alert__show{
+    opacity: 1;
+
+}
+
+.alert__hide{
+    opacity: 0;
+}
