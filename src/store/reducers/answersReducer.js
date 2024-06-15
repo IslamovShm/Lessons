@@ -1,4 +1,4 @@
-import { CORRECT_ANSWER, COUNT_OF_TRY_NUMBER, INCORRECT_ANSWER, LAST_ANSWER, QUESTION_DONE, SELECTED_DRAG, SELECTED_FILE, SET_TIME_STOPPED, TIMER_GO, VISITED_STEP } from "../constants/actionTypes";
+import { CORRECT_ANSWER, COUNT_OF_TRY_NUMBER, INCORRECT_ANSWER, LAST_ANSWER, QUESTION_DONE, SELECTED_DRAG, SELECTED_FILE, SET_TIME_STOPPED, RESET, VISITED_STEP } from "../constants/actionTypes";
 
 const initialState = []
 
@@ -58,14 +58,15 @@ const answersReducer = (state = initialState, action) => {
                 return obj
             });
         case SET_TIME_STOPPED:
-            console.log(action.payload.time)
             return state.map(obj => {
                 if(obj.id === action.payload.id){
                     return {...obj, timeStopped: action.payload.time}
                 }
                 return obj
             });
-        case TIMER_GO:
+        case RESET:
+            console.log('reseted')
+            return action.payload
             
         default: 
             return state;

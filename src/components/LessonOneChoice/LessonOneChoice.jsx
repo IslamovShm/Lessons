@@ -110,7 +110,6 @@ const LessonOneChoice = ({
 
     }, [])
 
-
     useEffect(() => {
         const thisQuestionArray = storeData.filter(obj => obj.id === idQuestion);
         const thisQuestion = thisQuestionArray[0];
@@ -129,8 +128,6 @@ const LessonOneChoice = ({
             dispatch(setIsVisited(idQuestion))
         }
     }, [timerOff])
-
-
 
     const checkTimer = () => {
         const thisQuestionArray = storeData.filter(obj => obj.id === idQuestion);

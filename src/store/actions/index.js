@@ -1,4 +1,4 @@
-import { CORRECT_ANSWER, COUNT_OF_TRY_NUMBER, INCORRECT_ANSWER, QUESTION_DONE, SELECTED_FILE, LAST_ANSWER, VISITED_STEP, SELECTED_DRAG, SET_TIME_STOPPED } from "../constants/actionTypes";
+import { CORRECT_ANSWER, COUNT_OF_TRY_NUMBER, INCORRECT_ANSWER, QUESTION_DONE, SELECTED_FILE, LAST_ANSWER, VISITED_STEP, SELECTED_DRAG, SET_TIME_STOPPED, SET_COURSE, RESET } from "../constants/actionTypes";
 
 export const setDone = (id, type, isCorrect, isVisited) => ({
     type: QUESTION_DONE,
@@ -66,4 +66,14 @@ export const setIsVisited = (id) => ({
 export const setTime = (id, time) => ({
     type: SET_TIME_STOPPED,
     payload: { id, time }
+})
+
+export const setCourse = (obj) => ({
+    type: SET_COURSE,
+    payload: obj
+})
+
+export const resettingLesson = () => ({
+    type: RESET,
+    payload: []
 })

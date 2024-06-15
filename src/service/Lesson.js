@@ -1,7 +1,10 @@
-const endpoint = 'https://demoschool.senet.uz/app/index.php'
+import { generateInstance } from "./common";
+import { userObj } from "./common";
+
+const token = userObj.token
 
 export async function getQuestion(module_id) {
-    const tokenSt = 'b7d9c313e196d83ae7e31a275bc39c632bd475ea';
+    const tokenSt = token;
     const body = {
         "action": "module_questions",
         "module_id": module_id
@@ -24,23 +27,9 @@ export async function getQuestion(module_id) {
         });
 }
 
-export function generateInstance(body, header = {}) {
-    const h = new Headers({
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-        'Accept': 'application/x-www-form-urlencoded',
-        ...header,
-    });
-    let url = endpoint + (body.action ? `?action=${body.action}` : '');
-    return fetch(url, {
-        method: 'post',
-        headers: h,
-        body: new URLSearchParams(body)
-    });
-}
-
 
 export async function event_log(action, comment) {
-    const tokenSt = 'b7d9c313e196d83ae7e31a275bc39c632bd475ea';
+    const tokenSt = token;
     if (tokenSt && tokenSt?.length > 0) {
         const body = {
             "action": "event_log",
@@ -54,7 +43,7 @@ export async function event_log(action, comment) {
 }
 
 export async function questionTry(question_id, answer, correct) {
-    const tokenSt = 'b7d9c313e196d83ae7e31a275bc39c632bd475ea';
+    const tokenSt = token;
     const body = {
         "action": "question_try",
         "question_id": question_id,

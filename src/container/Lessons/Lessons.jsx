@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import cn from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { setDone, setSelectedDrag, setSelectedFile, setTime } from '../../store/actions'
+import { resettingLesson, setDone, setSelectedDrag, setSelectedFile, setTime } from '../../store/actions'
 import LessonOverview from '../../components/LessonOverview/LessonOverview';
 import LessonVideo from '../../components/LessonVideo/LessonVideo';
 
@@ -13,11 +13,12 @@ import LessonOneChoice from '../../components/LessonOneChoice/LessonOneChoice';
 import LessonUpload from '../../components/LessonUpload/LessonUpload';
 import LessonComplete from '../../components/LessonComplete/LessonComplete';
 import { event_log, getQuestion } from '../../service/Lesson';
+import { useParams } from 'react-router-dom';
 
 
 const Lessons = () => {
     const [dataQuestions, setDataQuestions] = useState([])
-    const [currentstep, setCurrentStep] = useState(1)
+    const [currentstep, setCurrentStep] = useState()
     const [isComplete, setIsComplete] = useState(0)
     const [isVideo, setIsVideo] = useState(false)
     const [IsCompleteLesson, setIsCompleteLesson] = useState(false)
@@ -32,6 +33,8 @@ const Lessons = () => {
     const dispatch = useDispatch()
 
     const storeData = useSelector(state => state.answersReducer)
+
+    const { id } = useParams()
 
     const handleStepChange = (step, direction) => {
         if(direction == 'Previous'){
@@ -53,15 +56,17 @@ const Lessons = () => {
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
-                let dataquest = await getQuestion(56);
+                let dataquest = await getQuestion(id);
                 setDataQuestions(dataquest)
+                setCurrentStep(1)
             } catch (error) {
                 console.error('Error:', error);
             }
         };
-    
-        fetchQuestions();
-    }, [])
+
+        fetchQuestions()
+        dispatch(resettingLesson())
+    }, [id])
 
     const timerGo = () => {
         if (!intervalIdRef.current) {
@@ -88,7 +93,6 @@ const Lessons = () => {
 
     useEffect(() => {
         if(dataQuestions.length > 0){
-            console.log(mapOfTimerRuning.get(dataQuestions[currentstep - 1].id))
             if(!mapOfTimerRuning.get(dataQuestions[currentstep - 1].id)){
                 clearInterval(intervalIdRef.current)
                 intervalIdRef.current = null
@@ -102,7 +106,7 @@ const Lessons = () => {
             if(dataQuestions[currentstep - 1]?.type === 'video' || 
                dataQuestions[currentstep - 1]?.type === 'info'){
                 setDisableBtn(false)
-                dispatch(setDone(dataQuestions[currentstep - 1].id, dataQuestions[currentstep - 1].type, 'correct', false))
+                dispatch(setDone(dataQuestions[currentstep - 1].id, dataQuestions[currentstep - 1].type, 'correct', true))
             }else{
                 setDisableBtn(true)
             }
@@ -171,7 +175,7 @@ const Lessons = () => {
                             {
                                 dataQuestions.map((question, index) => (
                                     <div key={question.id} className={`${styles.step} ${
-                                            storeData[index] && storeData[index].isVisited ? styles.complete : ''
+                                            storeData[index] && storeData[index].isVisited  ? styles.complete : ''
                                         } ${currentstep === index + 1 ? styles.active : ''}`}
                                     >
 

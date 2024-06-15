@@ -1,9 +1,19 @@
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './LessonComplete.module.css'
+import { useDispatch } from 'react-redux';
+import { resettingLesson } from '../../store/actions';
 
 const LessonComplete = ({ progress, questions }) => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const handleBack = () => {
+        dispatch(resettingLesson())
+        navigate(-1)
+    }
 
     return(
         <div className={styles.lesson__complete_container}>
@@ -38,7 +48,7 @@ const LessonComplete = ({ progress, questions }) => {
                         }}
                     />
                     <p>
-                        <span className={styles.progress_count}>{progress}</span>
+                        <span className={styles.progress_count}>{Math.round(progress)}</span>
                         <span className={styles.progress__all}>/ 100</span>
                     </p>
                 </div>
@@ -56,7 +66,7 @@ const LessonComplete = ({ progress, questions }) => {
                     </span>
                 </div>
 
-                <button type='button' className={styles.continue}>Continue</button>
+                <button type='button' className={styles.continue} onClick={() => handleBack()}>Continue</button>
             </div>
         </div>
     )
