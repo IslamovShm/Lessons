@@ -163,6 +163,7 @@ const Lessons = () => {
         dispatch(setTime(dataQuestions[currentstep - 1].id, time));
     }
 
+    console.log(dataQuestions)
     return (
         <div className={styles.container}>
             <h1 className={styles.lesson__title}>Front-end Basics</h1>

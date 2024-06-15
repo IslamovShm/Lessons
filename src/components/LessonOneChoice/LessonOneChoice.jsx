@@ -266,8 +266,8 @@ const LessonOneChoice = ({
                             disabled={ableAnswer}
                             className={isCorrect == option.id ? (isCorrect == answerId ? styles.correct_btn : styles.incorrect_btn) : ''}
                         >
-                            <span>{option.value.slice(0, 2)}</span>
-                            {option.value.slice(2, option.value.length)}
+                            {/* <span>{option.value.slice(0, 2)}</span> */}
+                            {option.value}
                         </button>
                     ))
                 }
